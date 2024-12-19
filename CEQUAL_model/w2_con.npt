@@ -1,0 +1,935 @@
+                              Millerton Lake                                  
+   
+TITLE C ....................................
+Millerton Lake existing baseline with Settlement flow conditions
+Baseline
+comment
+comment
+comment
+comment
+comment
+comment
+comment
+comment
+
+GRID         NWB     NBR     IMX     KMX                                        
+               1       4      46     212
+
+IN/OUTFLOW   NTR     NST     NIW     NWD     NGT     NSP     NPI     NPU        
+               0       4       0       0       0       0       0       0
+
+CONSTITUENTS NGC     NSS     NAL     NEP    NBOD                                        
+               4       3       3       0       3
+
+MISCELL     NDAY                                                                
+             100
+
+TIME CON  TMSTRT   TMEND    YEAR    ! start: water year 1922; 00:00am, Oct.1 1921,TMSTRT=274.0; 23:00pm, Sep.30 2003:TMEND=37314.96                                          
+        37408.0437617.97    1921    ! 37078.0, 10/1/1977, the first water year is for model warming-up purpose only, 21093.0, 10/1/1978
+
+DLT CON     NDLT  DLTMIN                                                        
+               5   0.100
+
+DLT DATE    DLTD    DLTD    DLTD    DLTD    DLTD    DLTD    DLTD    DLTD    DLTD
+           1.00022807.0022814.0027759.0027765.00    
+
+DLT MAX   DLTMAX  DLTMAX  DLTMAX  DLTMAX  DLTMAX  DLTMAX  DLTMAX  DLTMAX  DLTMAX
+         600.000   5.000 600.000   5.000 600.000     
+
+DLT FRN     DLTF    DLTF    DLTF    DLTF    DLTF    DLTF    DLTF    DLTF    DLTF
+           0.900   0.600   0.900   0.600   0.900
+
+DLT LIMIT   VISC    CELC                                                        
+Wb 1          ON      ON
+
+BRANCH G      US      DS     UHS     DHS     UQB     DQB   NLMIN   SLOPE        
+Br 1           2      31       0       0       0       0       1     0.0
+Br 2          34      36       0      21       0       0       1     0.0
+Br 3          39      41       0      27       0       0       1     0.0
+Br 4          44      45       0      28       0       0       1     0.0
+
+LOCATION     LAT    LONG    EBOT      BS      BE    JBDN                        
+Wb 1      37.000 119.703   90.50       1       4       1 
+
+INIT CND     T2I    ICEI  WTYPEC                                                
+Wb 1        -1.0   0.000   FRESH  
+
+CALCULAT     VBC     EBC     MBC     PQC     EVC     PRC                        
+Wb 1          ON      ON     OFF     OFF     OFF     OFF
+              
+DEAD SEA   WINDC    QINC   QOUTC   HEATC                                        
+Wb 1          ON      ON      ON      ON
+              
+INTERPOL   QINIC   DTRIC    HDIC                                                
+Br 1          ON      ON     OFF
+Br 2          ON      ON     OFF
+Br 3          ON      ON     OFF
+Br 4          ON      ON     OFF
+
+HEAT EXCH  SLHTC    SROC  RHEVAP   METIC  FETCHC     AFW     BFW     CFW   WINDH
+Wb 1        TERM     OFF     OFF      ON     OFF   7.000   0.460   2.000   2.000
+
+ICE COVER   ICEC  SLICEC  ALBEDO   HWICE    BICE    GICE  ICEMIN   ICET2        
+Wb 1         OFF  DETAIL   0.250  10.000   0.600   0.070   0.050   3.000
+
+TRANSPORT  SLTRC   THETA                                                        
+Wb 1    ULTIMATE   0.550
+
+HYD COEF      AX      DX    CBHE    TSED      FI   TSEDF   FRICC                
+Wb 1       1.000   1.000     0.3   8.000    0.01   0.000   CHEZY
+
+EDDY VISC    AZC   AZSLC   AZMAX                                                
+Wb 1          W2     IMP  1.0E-3
+
+N STRUC     NSTR                                                                
+Br 1           4
+Br 2           0
+Br 3           0
+Br 4           0
+
+STR INT    STRIC   STRIC   STRIC   STRIC   STRIC   STRIC   STRIC   STRIC   STRIC
+Br 1          ON      ON      ON      ON   ! STRIC is set as ON, so the water level will match the water operation model results            
+Br 2                     
+Br 3          
+Br 4          
+
+STR TOP    KTSTR   KTSTR   KTSTR   KTSTR   KTSTR   KTSTR   KTSTR   KTSTR   KTSTR
+Br 1           2       2       2     180          
+Br 2           
+Br 3           
+Br 4           
+
+STR BOT    KBSTR   KBSTR   KBSTR   KBSTR   KBSTR   KBSTR   KBSTR   KBSTR   KBSTR
+Br 1         209     166     170     209             
+Br 2          
+Br 3         
+Br 4         
+                                                                                  
+STR SINK   SINKC   SINKC   SINKC   SINKC   SINKC   SINKC   SINKC   SINKC   SINKC
+Br 1        LINE    LINE    LINE   POINT   
+Br 2        
+Br 3        
+Br 4       
+
+STR ELEV    ESTR    ESTR    ESTR    ESTR    ESTR    ESTR    ESTR    ESTR    ESTR
+Br 1      171.78  142.21  136.73  116.61     
+Br 2      
+Br 3         
+Br 4      
+
+STR WIDTH   WSTR    WSTR    WSTR    WSTR    WSTR    WSTR    WSTR    WSTR    WSTR
+Br 1       91.44    30.5    15.2    30.5     
+Br 2                
+Br 3       
+Br 4        
+
+PIPES       IUPI    IDPI    EUPI    EDPI     WPI   DLXPI     FPI  FMINPI        
+
+
+PIPE UP    PUPIC   ETUPI   EBUPI   KTUPI   KBUPI                                
+
+
+PIPE DOWN  PDPIC   ETDPI   EBDPI   KTDPI   KBDPI                                
+
+
+SPILLWAY    IUSP    IDSP     ESP    A1SP    B1SP    A2SP    B2SP                
+              
+
+SPILL UP   PUSPC   ETUSP   EBUSP   KTUSP   KBUSP                                
+                
+
+SPILL DOWN PDSPC   ETDSP   EBDSP   KTDSP   KBDSP                                
+
+
+SPILL GAS GASSPC    EQSP  AGASSP  BGASSP  CGASSP                                
+
+
+GATES       IUGT    IDGT     EGT    A1GT    B1GT    G1GT    A2GT    B2GT    G2GT
+
+
+GATE WEIR   GTA1    GTB1    GTA2    GTB2                                        
+
+
+GATE UP    PUGTC   ETUGT   EBUGT   KTUGT   KBUGT                                
+
+
+GATE DOWN  PDGTC   ETDGT   EBDGT   KTDGT   KBDGT                                
+
+
+GATE GAS  GASGTC    EQGT  AGASGT  BGASGT  CGASGT                                
+
+
+PUMPS 1     IUPU    IDPU     EPU  STRTPU   ENDPU   EONPU  EOFFPU     QPU        
+
+
+PUMPS 2     PPUC    ETPU    EBPU    KTPU    KBPU                                
+
+
+WEIR SEG     IWR     IWR     IWR     IWR     IWR     IWR     IWR     IWR     IWR
+
+
+WEIR TOP    KTWR    KTWR    KTWR    KTWR    KTWR    KTWR    KTWR    KTWR    KTWR
+
+
+WEIR BOT    KBWR    KBWR    KBWR    KBWR    KBWR    KBWR    KBWR    KBWR    KBWR
+
+
+WD INT      WDIC    WDIC    WDIC    WDIC    WDIC    WDIC    WDIC    WDIC    WDIC
+             
+
+WD SEG       IWD     IWD     IWD     IWD     IWD     IWD     IWD     IWD     IWD
+              
+
+WD ELEV      EWD     EWD     EWD     EWD     EWD     EWD     EWD     EWD     EWD
+           
+
+WD TOP      KTWD    KTWD    KTWD    KTWD    KTWD    KTWD    KTWD    KTWD    KTWD
+               
+
+WD BOT      KBWD    KBWD    KBWD    KBWD    KBWD    KBWD    KBWD    KBWD    KBWD
+              
+
+TRIB PLACE  PTRC    PTRC    PTRC    PTRC    PTRC    PTRC    PTRC    PTRC    PTRC
+         
+
+TRIB INT    TRIC    TRIC    TRIC    TRIC    TRIC    TRIC    TRIC    TRIC    TRIC
+             
+
+TRIB SEG     ITR     ITR     ITR     ITR     ITR     ITR     ITR     ITR     ITR
+              
+
+TRIB TOP    KTTR    KTTR    KTTR    KTTR    KTTR    KTTR    KTTR    KTTR    KTTR
+                     
+
+TRIB BOT    KBTR    KBTR    KBTR    KBTR    KBTR    KBTR    KBTR    KBTR    KBTR
+           
+
+DST TRIB    DTRC                                                                
+Br 1          ON
+Br 2         OFF
+Br 3         OFF
+Br 4         OFF
+
+PUMPBACK     JBG     KTG     KBG     JBP     KTP     KBP                        
+               0
+
+PRINTER      LJC                                                                
+              IV
+
+HYD PRINT HPRWBC  HPRWBC  HPRWBC  HPRWBC  HPRWBC  HPRWBC  HPRWBC  HPRWBC  HPRWBC
+NVIOL        OFF     OFF
+U             ON      ON
+W             ON      ON
+T             ON      ON
+RHO          OFF     OFF
+AZ           OFF     OFF
+SHEAR        OFF     OFF
+ST           OFF     OFF
+SB           OFF     OFF
+ADMX         OFF     OFF
+DM           OFF     OFF
+HDG          OFF     OFF
+ADMZ         OFF     OFF
+HPG          OFF     OFF
+GRAV         OFF     OFF
+
+SNP PRINT   SNPC    NSNP   NISNP                                                
+Wb 1          ON       1       1
+
+SNP DATE    SNPD    SNPD    SNPD    SNPD    SNPD    SNPD    SNPD    SNPD    SNPD
+Wb 1         1.0  
+
+SNP FREQ    SNPF    SNPF    SNPF    SNPF    SNPF    SNPF    SNPF    SNPF    SNPF
+Wb 1         1.0  
+
+SNP SEG     ISNP    ISNP    ISNP    ISNP    ISNP    ISNP    ISNP    ISNP    ISNP
+Wb 1          31                 
+
+SCR PRINT   SCRC    NSCR                                                        
+Wb 1          ON       1
+
+SCR DATE    SCRD    SCRD    SCRD    SCRD    SCRD    SCRD    SCRD    SCRD    SCRD
+Wb 1         1.5 
+
+SCR FREQ    SCRF    SCRF    SCRF    SCRF    SCRF    SCRF    SCRF    SCRF    SCRF
+Wb 1       1.000
+
+PRF PLOT    PRFC    NPRF   NIPRF                                                
+Wb 1         OFF       1       1
+
+PRF DATE    PRFD    PRFD    PRFD    PRFD    PRFD    PRFD    PRFD    PRFD    PRFD
+Wb 1        15.5
+
+PRF FREQ    PRFF    PRFF    PRFF    PRFF    PRFF    PRFF    PRFF    PRFF    PRFF
+Wb 1         1.0
+
+PRF SEG     IPRF    IPRF    IPRF    IPRF    IPRF    IPRF    IPRF    IPRF    IPRF
+Wb 1          31
+
+SPR PLOT    SPRC    NSPR   NISPR                                                
+Wb 1          ON       1       1
+
+SPR DATE    SPRD    SPRD    SPRD    SPRD    SPRD    SPRD    SPRD    SPRD    SPRD
+Wb 1     21093.5   
+
+SPR FREQ    SPRF    SPRF    SPRF    SPRF    SPRF    SPRF    SPRF    SPRF    SPRF
+Wb 1         1.0   
+
+SPR SEG     ISPR    ISPR    ISPR    ISPR    ISPR    ISPR    ISPR    ISPR    ISPR
+Wb 1          31
+
+VPL PLOT    VPLC    NVPL                                                        
+Wb 1         OFF
+
+VPL DATE    VPLD    VPLD    VPLD    VPLD    VPLD    VPLD    VPLD    VPLD    VPLD
+Wb 1
+
+VPL FREQ    VPLF    VPLF    VPLF    VPLF    VPLF    VPLF    VPLF    VPLF    VPLF
+Wb 1
+
+CPL PLOT    CPLC    NCPL                                                        
+Wb 1         OFF
+
+CPL DATE    CPLD    CPLD    CPLD    CPLD    CPLD    CPLD    CPLD    CPLD    CPLD
+Wb 1
+
+CPL FREQ    CPLF    CPLF    CPLF    CPLF    CPLF    CPLF    CPLF    CPLF    CPLF
+Wb 1  
+
+FLUXES      FLXC    NFLX                                                        
+Wb 1         OFF       
+
+FLX DATE    FLXD    FLXD    FLXD    FLXD    FLXD    FLXD    FLXD    FLXD    FLXD
+Wb 1
+
+FLX FREQ    FLXF    FLXF    FLXF    FLXF    FLXF    FLXF    FLXF    FLXF    FLXF
+Wb 1
+
+TSR PLOT    TSRC    NTSR   NITSR                                                
+              ON       1       1              
+
+TSR DATE    TSRD    TSRD    TSRD    TSRD    TSRD    TSRD    TSRD    TSRD    TSRD
+         21093.5            
+
+TSR FREQ    TSRF    TSRF    TSRF    TSRF    TSRF    TSRF    TSRF    TSRF    TSRF
+            1.00
+
+TSR SEG     ITSR    ITSR    ITSR    ITSR    ITSR    ITSR    ITSR    ITSR    ITSR
+              31      
+
+TSR LAYER   ETSR    ETSR    ETSR    ETSR    ETSR    ETSR    ETSR    ETSR    ETSR
+               0       0 
+
+WITH OUT    WDOC    NWDO   NIWDO                                                
+             OFF              
+
+WITH DATE   WDOD    WDOD    WDOD    WDOD    WDOD    WDOD    WDOD    WDOD    WDOD
+
+
+WITH FREQ   WDOF    WDOF    WDOF    WDOF    WDOF    WDOF    WDOF    WDOF    WDOF
+        
+
+WITH SEG    IWDO    IWDO    IWDO    IWDO    IWDO    IWDO    IWDO    IWDO    IWDO
+              
+
+RESTART     RSOC    NRSO    RSIC                                                
+             OFF       1     OFF
+
+RSO DATE    RSOD    RSOD    RSOD    RSOD    RSOD    RSOD    RSOD    RSOD    RSOD
+          366.00
+
+RSO FREQ    RSOF    RSOF    RSOF    RSOF    RSOF    RSOF    RSOF    RSOF    RSOF
+         100.000
+
+CST COMP     CCC    LIMC     CUF                                                
+             OFF     OFF       1
+
+CST ACTIVE   CAC     CAC
+TDS          OFF     OFF   Total Dissolved Solids or salinity
+TRACER       OFF     OFF   Generic Constituent #1 -- Total Number Defined on Card #4
+AGE          OFF     OFF   Generic Constituent #2 -- Total Number Defined on Card #4
+COLIFRM      OFF     OFF   Generic Constituent #3 -- Total Number Defined on Card #4
+GEN4         OFF     OFF   Generic Constituent #4 -- Total Number Defined on Card #4
+ISS1         OFF     OFF   Inrganic Suspended Solids Group #1 -- Total Number Defined on Card #4
+ISS2         OFF     OFF   Inrganic Suspended Solids Group #2 -- Total Number Defined on Card #4
+ISS3         OFF     OFF   Inrganic Suspended Solids Group #3 -- Total Number Defined on Card #4
+PO4          OFF     OFF   Dissolved Inorganic Phosphorus
+NH4          OFF     OFF   Ammonium
+NO3          OFF     OFF   Nitrate -- Nitrite
+DSI          OFF     OFF   Dissolved Silica
+PSI          OFF     OFF   Particulate Biogenic Silica
+FE           OFF     OFF   Dissolved Iron
+LDOM         OFF     OFF   Labile Dissolved Organic Matter
+RDOM         OFF     OFF   Refractory Dissolved Organic Matter
+LPOM         OFF     OFF   Labile Particulate Organic Matter
+RPOM         OFF     OFF   Refractory Particulate Organic Matter
+CBOD1        OFF     OFF   CBOD Group #1 -- Total Number Defined on Card #4
+CBOD2        OFF     OFF   CBOD Group #2 -- Total Number Defined on Card #4
+CBOD3        OFF     OFF   CBOD Group #3 -- Total Number Defined on Card #4
+ALG1         OFF     OFF   Algal Group #1 -- Total Number Defined on Card #4
+ALG2         OFF     OFF   Algal Group #2 -- Total Number Defined on Card #4
+ALG3         OFF     OFF   Algal Group #3 -- Total Number Defined on Card #4
+DO           OFF     OFF   Dissolved Oxygen
+TIC          OFF     OFF   Total Inorganic Carbon
+ALK          OFF     OFF   Alkalinity
+
+CST DERIVE CDWBC   CDWBC
+DOC          OFF     OFF    Dissolved Organic Carbon
+POC          OFF     OFF    Particulate Organic Carbon
+TOC          OFF     OFF    Total Organic Carbon
+DON          OFF     OFF    Dissolved Organic Nitrogen
+PON          OFF     OFF    Particulate Organic Nitrogen
+TON          OFF     OFF    Total Organic Nitrogen
+TKN          OFF     OFF    Total Kjeldahl Nitrogen
+TN           OFF     OFF    Total Nitrogen
+DOP          OFF     OFF    Dissolved Organic Phosphorus
+POP          OFF     OFF    Particulate Organic Phosphorus
+TOP          OFF     OFF    Total Organic Phosphorus
+TP           OFF     OFF    Total Phosphorus
+APR          OFF     OFF    Algal Production
+CHLA         OFF     OFF    Chlorophyll a
+ATOT         OFF     OFF    Total Algal Biomass
+%DO          OFF     OFF    Dissolved Oxygen Saturation
+TSS          OFF     OFF    Total Suspended Solids
+TISS         OFF     OFF    Total Inorganic Suspended Solids
+CBODU        OFF     OFF    Ultimate Carbonaceous BOD
+pH           OFF     OFF    pH
+CO2          OFF     OFF    Carbon Dioxide
+HCO3         OFF     OFF    Bicarbonate
+CO3          OFF     OFF    Carbonate
+
+CST FLUX   CFWBC   CFWBC
+TISSIN       OFF     OFF    Total Inorganic Suspended Solids Settling, source
+TISSOUT      OFF     OFF    Total Inorganic Suspended Solids Settling, sink
+PO4AR        OFF     OFF    PO4 from lgal Respiration, source
+PO4AG        OFF     OFF    PO4 from Algal Growth, sink
+PO4AP        OFF     OFF    Net PO4 Algal Uptake, source/sink
+PO4ER        OFF     OFF    PO4 from epiphyton uptake, source/sink
+PO4EG        OFF     OFF    PO4 from epiphyton growth, source/sink
+PO4EP        OFF     OFF    Net PO4 epiphyton uptake, source/sink
+PO4POM       OFF     OFF    PO4 from Particulate Organic Matter, source
+PO4DOM       OFF     OFF    PO4 from Dissolved Organic Matter, source
+PO4OM        OFF     OFF    PO4 from Organic Matter, source
+PO4SED       OFF     OFF    PO4 from Sediment Compartment, source
+PO4SOD       OFF     OFF    PO4 from 0-Order Sediment Release, source
+PO4SET       OFF     OFF    Sorbed PO4 from Settling, source/sink
+NH4NITR      OFF     OFF    NH4 from Nitrification, sink
+NH4AR        OFF     OFF    NH4 from Algal Respiration, source
+NH4AG        OFF     OFF    NH4 from Algal Growth, sink
+NH4AP        OFF     OFF    Net NH4 Algal Uptake, source/sink
+NH4ER        OFF     OFF    NH4 from epiphyton respiration, source   
+NH4EG        OFF     OFF    NH4 from epiphyton growth, sink
+NH4EP        OFF     OFF    Net NH4 epiphyton uptake, source/sink?
+NH4POM       OFF     OFF    NH4 from Particulate Organic Matter, source
+NH4DOM       OFF     OFF    NH4 from Dissolved Organic Matter, source
+NH4OM        OFF     OFF    NH4 from Organic Matter Decay, sink
+NH4SED       OFF     OFF    NH4 from Sediment Compartment, source
+NH4SOD       OFF     OFF    NH4 from 0-Order Sediment Release, source
+NO3DEN       OFF     OFF    NO3 from detitrification, sink
+NO3AG        OFF     OFF    NO3 from Algal Growth, sink
+NO3EG        OFF     OFF    NO3 from epiphyton growth, sink
+NO3SED       OFF     OFF    NO3 from Sediment Compartment, source
+DSIAG        OFF     OFF    Dissolved Si from Algal Growth, sink
+DSIEG        OFF     OFF    Dissolved Si from epiphyton growth, sink
+DSIPBSI      OFF     OFF    Dissolved Si from Particulate Biogenic Si, source
+DSISED       OFF     OFF    Dissolved Si from Sediment Compartment, source
+DSISOD       OFF     OFF    Dissolved Si from 0-Order Sediment Release, source
+DSISET       OFF     OFF    Dissolved Si from Sorbed Si Settling, source/sink
+PBSIAM       OFF     OFF    Particulate Biogenic Si from Algal Mortality, source
+PBSINET      OFF     OFF    Particulate Biogenic Si from Settling, source/sink
+PBSIDK       OFF     OFF    Particulate Biogenic Si Decay, sink
+FESET        OFF     OFF    Fe from Settling, source/sink
+FESED        OFF     OFF    Fe from Sediment Release, source
+LDOMDK       OFF     OFF    Labile DOM Decay, sink
+LRDOM        OFF     OFF    Labile to Refractory DOM Decay, sink
+RDOMDK       OFF     OFF    Refractory DOM Decay, sink
+LDOMAP       OFF     OFF    Labile DOM from Algal Mortality, source
+LDOMEP       OFF     OFF    Labile DOM from epiphyton Mortality, source
+LPOMDK       OFF     OFF    Labile POM Decay, sink
+LRPOM        OFF     OFF    Labile to Refractory POM Decay, sink
+RPOMDK       OFF     OFF    Refractory POM Decay, sink
+LPOMAP       OFF     OFF    Labile POM from Algal Mortality, source
+LPOMEP       OFF     OFF    Labile POM from epiphyton Mortality, source
+LPOMSET      OFF     OFF    Labile POM from Settling, source/sink
+RPOMSET      OFF     OFF    Refractory POM from Settling, source/sink
+CBODDK       OFF     OFF    CBOD Decay, sink
+DOAP         OFF     OFF    DO from Algal Production, source
+DOAR         OFF     OFF    DO from Algal Respiration, sink
+DOEP         OFF     OFF    DO from epiphyton Production, source
+DOER         OFF     OFF    DO from epiphyton Respiration, sink
+DOPOM        OFF     OFF    DO from POM Decay, sink
+DODOM        OFF     OFF    DO from DOM Decay, sink
+DOOM         OFF     OFF    DO from OM Decay, sink
+DONITR       OFF     OFF    DO from Nitrification, sink
+DOCBOD       OFF     OFF    DO from CBOD Decay, sink
+DOREAR       OFF     OFF    DO from Reaeration, sink
+DOSED        OFF     OFF    DO from Sediment Compartment Decay, sink
+DOSOD        OFF     OFF    DO from 0-Order Sediment Compartment, sink
+TICAG        OFF     OFF    Total Inorganic Carbon from AlgalGrowth, sink
+TICEG        OFF     OFF    Total Inorganic cargon from Epiphyton growth, sink
+SEDDK        OFF     OFF    Sediment Compartment Decay, sink
+SEDAS        OFF     OFF    Sediment Compartment from Algal Settling, source
+SEDLPOM      OFF     OFF    Sediment Compartment from LPOM settling, source
+SEDSET       OFF     OFF    Sediment Compartment from
+SODDK        OFF     OFF    SOD decay
+
+CST ICON   C2IWB   C2IWB
+TDS          1.0     1.0    Total Dissolved Solids or salinity
+TRACER       0.0     0.0    Generic Constituent #1
+AGE          0.0     0.0    Generic Constituent #2
+COL1         0.1     0.1    Generic Constituent #3
+GEN1         0.0     0.0    Generic Constituent #4
+ISS1         5.0     5.0    Inorganic Suspended Solids Group #1
+ISS2         0.0     0.0    Inorganic Suspended Solids Group #2
+ISS3         0.0     0.0    Inorganic Suspended Solids Group #3
+PO4        0.010   0.010    Dissolved Inorganic Phosphorus
+NH4        0.010   0.010    Ammonium
+NO3        0.140   0.140    Nitrate -- Nitrite
+DSI         10.0    10.0    Dissolved Silica
+PSI          2.0     2.0    Particulate Biogenic Silica
+FE           1.0     1.0    Iron
+LDOM        0.05    0.05    Labile Dissolved Organic Matter
+RDOM        0.45    0.45    Refractory Dissolved Organic Matter
+LPOM        0.05    0.05    Labile Particulate Organic Matter
+RPOM        0.45    0.45    Refractory Particulate Organic matter
+CBOD1        1.0     1.0    Carbonaceous Biochemical Oxygen Demand Group #1
+CBOD2        0.0     0.0    Carbonaceous Biochemical Oxygen Demand Group #2
+CBOD3        0.0     0.0    Carbonaceous Biochemical Oxygen Demand Group #3
+ALG1         0.0     0.0    Algal Group #1
+ALG2        0.01    0.01    Algal Group #2
+ALG3         0.0     0.0    Algal Group #3
+DO           1.0     1.0    Dissolved Oxygen
+TIC         10.5    10.5    Total Inorganic Carbon
+ALK         37.0    37.0    Alkalinity
+
+CST PRINT CPRWBC  CPRWBC
+TDS          OFF     OFF    Total Dissolved Solids or salinity
+TRACER       OFF     OFF    Generic Constituent #1
+AGE          OFF     OFF    Generic Constituent #2
+COL1         OFF     OFF    Generic Constituent #3
+GEN1         OFF     OFF    Generic Constituent #4
+ISS1         OFF     OFF    Inorganic Suspended Solids Group #1
+ISS2         OFF     OFF    Inorganic Suspended Solids Group #2
+ISS3         OFF     OFF    Inorganic Suspended Solids Group #3
+PO4          OFF     OFF    Dissolved Inorganic Phosphorus
+NH4          OFF     OFF    Ammonium
+NO3          OFF     OFF    Nitrate -- Nitrite
+DSI          OFF     OFF    Dissolved Silica
+PSI          OFF     OFF    Particulate Biogenic Silica
+FE           OFF     OFF    Iron
+LDOM         OFF     OFF    Labile Dissolved Organic Matter
+RDOM         OFF     OFF    Refractory Dissolved Organic Matter
+LPOM         OFF     OFF    Labile Particulate Organic Matter
+RPOM         OFF     OFF    Refractory Particulate Organic matter
+CBOD1        OFF     OFF    Carbonaceous Biochemical Oxygen Demand Group #1
+CBOD2        OFF     OFF    Carbonaceous Biochemical Oxygen Demand Group #2
+CBOD3        OFF     OFF    Carbonaceous Biochemical Oxygen Demand Group #3
+ALG1         OFF     OFF    Algal Group #1
+ALG2         OFF     OFF    Algal Group #2
+ALG3         OFF     OFF    Algal Group #3
+DO           OFF     OFF    Dissolved Oxygen
+TIC          OFF     OFF    Total Inorganic Carbon
+ALK          OFF     OFF    Alkalinity
+
+CIN CON   CINBRC  CINBR2  CINBR3  CINBR4  DESCRIPTION
+TDS          OFF     OFF     OFF     OFF  Total Dissolved Solids or salinity
+TRACER       OFF     OFF     OFF     OFF  Generic Constituent #1
+AGE          OFF     OFF     OFF     OFF  Generic Constituent #2
+COL1         OFF     OFF     OFF     OFF  Generic Constituent #3
+GEN1         OFF     OFF     OFF     OFF  Generic Constituent #4
+ISS1         OFF     OFF     OFF     OFF  Inorganic Suspended Solids Group #1
+ISS2         OFF     OFF     OFF     OFF  Inorganic Suspended Solids Group #2
+ISS3         OFF     OFF     OFF     OFF  Inorganic Suspended Solids Group #3
+PO4          OFF     OFF     OFF     OFF  Dissolved Inorganic Phosphorus
+NH4          OFF     OFF     OFF     OFF  Ammonium
+NO3          OFF     OFF     OFF     OFF  Nitrate -- Nitrite
+DSI          OFF     OFF     OFF     OFF  Dissolved Silica
+PSI          OFF     OFF     OFF     OFF  Particulate Biogenic Silica
+FE           OFF     OFF     OFF     OFF  Iron
+LDOM         OFF     OFF     OFF     OFF  Labile Dissolved Organic Matter
+RDOM         OFF     OFF     OFF     OFF  Refractory Dissolved Organic Matter
+LPOM         OFF     OFF     OFF     OFF  Labile Particulate Organic Matter
+RPOM         OFF     OFF     OFF     OFF  Refractory Particulate Organic matter
+CBOD1        OFF     OFF     OFF     OFF  Carbonaceous BOD Group #1
+CBOD2        OFF     OFF     OFF     OFF  Carbonaceous BOD Group #2
+CBOD3        OFF     OFF     OFF     OFF  Carbonaceous BOD Group #3
+ALG1         OFF     OFF     OFF     OFF  Algal Group #1
+ALG2         OFF     OFF     OFF     OFF  Algal Group #2
+ALG3         OFF     OFF     OFF     OFF  Algal Group #3
+DO           OFF     OFF     OFF     OFF  Dissolved Oxygen
+TIC          OFF     OFF     OFF     OFF  Total Inorganic Carbon
+ALK          OFF     OFF     OFF     OFF  Alkalinity
+
+CTR CON   CTRTRC
+TDS          OFF       Total Dissolved Solids or salinity
+TRACER       OFF       Generic Constituent #1
+AGE          OFF       Generic Constituent #2
+COL1         OFF       Generic Constituent #3
+GEN1         OFF       Generic Constituent #4
+ISS1         OFF       Inorganic Suspended Solids Group #1
+ISS2         OFF       Inorganic Suspended Solids Group #2
+ISS3         OFF       Inorganic Suspended Solids Group #3
+PO4          OFF       Dissolved Inorganic Phosphorus
+NH4          OFF       Ammonium
+NO3          OFF       Nitrate -- Nitrite
+DSI          OFF       Dissolved Silica
+PSI          OFF       Particulate Biogenic Silica
+FE           OFF       Iron
+LDOM         OFF       Labile Dissolved Organic Matter
+RDOM         OFF       Refractory Dissolved Organic Matter
+LPOM         OFF       Labile Particulate Organic Matter
+RPOM         OFF       Refractory Particulate Organic matter
+CBOD1        OFF       Carbonaceous Biochemical Oxygen Demand Group #1
+CBOD2        OFF       Carbonaceous Biochemical Oxygen Demand Group #2
+CBOD3        OFF       Carbonaceous Biochemical Oxygen Demand Group #3
+ALG1         OFF       Algal Group #1
+ALG2         OFF       Algal Group #2
+ALG3         OFF       Algal Group #3
+DO           OFF       Dissolved Oxygen
+TIC          OFF       Total Inorganic Carbon
+ALK          OFF       Alkalinity
+
+CDT CON   CDTBRC  CDTBR2  CDTBR3  CDTBR4  Description
+TDS          OFF     OFF     OFF     OFF  Total Dissolved Solids or salinity
+TRACER       OFF     OFF     OFF     OFF  Generic Constituent #1
+AGE          OFF     OFF     OFF     OFF  Generic Constituent #2
+COL1         OFF     OFF     OFF     OFF  Generic Constituent #3
+GEN1         OFF     OFF     OFF     OFF  Generic Constituent #4
+ISS1         OFF     OFF     OFF     OFF  Inorganic Suspended Solids Group #1
+ISS2         OFF     OFF     OFF     OFF  Inorganic Suspended Solids Group #2
+ISS3         OFF     OFF     OFF     OFF  Inorganic Suspended Solids Group #3
+PO4          OFF     OFF     OFF     OFF  Dissolved Inorganic Phosphorus
+NH4          OFF     OFF     OFF     OFF  Ammonium
+NO3          OFF     OFF     OFF     OFF  Nitrate -- Nitrite
+DSI          OFF     OFF     OFF     OFF  Dissolved Silica
+PSI          OFF     OFF     OFF     OFF  Particulate Biogenic Silica
+FE           OFF     OFF     OFF     OFF  Iron
+LDOM         OFF     OFF     OFF     OFF  Labile Dissolved Organic Matter
+RDOM         OFF     OFF     OFF     OFF  Refractory Dissolved Organic Matter
+LPOM         OFF     OFF     OFF     OFF  Labile Particulate Organic Matter
+RPOM         OFF     OFF     OFF     OFF  Refractory Particulate Organic matter
+CBOD1        OFF     OFF     OFF     OFF  Carbonaceous Biochemical Oxygen Demand Group #1
+CBOD2        OFF     OFF     OFF     OFF  Carbonaceous Biochemical Oxygen Demand Group #2
+CBOD3        OFF     OFF     OFF     OFF  Carbonaceous Biochemical Oxygen Demand Group #3
+ALG1         OFF     OFF     OFF     OFF  Algal Group #1
+ALG2         OFF     OFF     OFF     OFF  Algal Group #2
+ALG3         OFF     OFF     OFF     OFF  Algal Group #3
+DO           OFF     OFF     OFF     OFF  Dissolved Oxygen
+TIC          OFF     OFF     OFF     OFF  Total Inorganic Carbon
+ALK          OFF     OFF     OFF     OFF  Alkalinity
+
+CPR CON   CPRBRC  CPRBRC  CPRBRC  CPRBRC
+TDS          OFF     OFF     OFF     OFF   Total Dissolved Solids or salinity
+TRACER       OFF     OFF     OFF     OFF   Generic Constituent #1
+AGE          OFF     OFF     OFF     OFF   Generic Constituent #2
+COL1         OFF     OFF     OFF     OFF   Generic Constituent #3
+GEN1         OFF     OFF     OFF     OFF   Generic Constituent #4
+ISS1         OFF     OFF     OFF     OFF   Inorganic Suspended Solids Group #1
+ISS2         OFF     OFF     OFF     OFF   Inorganic Suspended Solids Group #2
+ISS3         OFF     OFF     OFF     OFF   Inorganic Suspended Solids Group #3
+PO4          OFF     OFF     OFF     OFF   Dissolved Inorganic Phosphorus
+NH4          OFF     OFF     OFF     OFF   Ammonium
+NO3          OFF     OFF     OFF     OFF   Nitrate -- Nitrite
+DSI          OFF     OFF     OFF     OFF   Dissolved Silica
+PSI          OFF     OFF     OFF     OFF   Particulate Biogenic Silica
+FE           OFF     OFF     OFF     OFF   Iron
+LDOM         OFF     OFF     OFF     OFF   Labile Dissolved Organic Matter
+RDOM         OFF     OFF     OFF     OFF   Refractory Dissolved Organic Matter
+LPOM         OFF     OFF     OFF     OFF   Labile Particulate Organic Matter
+RPOM         OFF     OFF     OFF     OFF   Refractory Particulate Organic matter
+CBOD1        OFF     OFF     OFF     OFF   Carbonaceous Biochemical Oxygen Demand Group #1
+CBOD2        OFF     OFF     OFF     OFF   Carbonaceous Biochemical Oxygen Demand Group #2
+CBOD3        OFF     OFF     OFF     OFF   Carbonaceous Biochemical Oxygen Demand Group #3
+ALG1         OFF     OFF     OFF     OFF   Algal Group #1
+ALG2         OFF     OFF     OFF     OFF   Algal Group #2
+ALG3         OFF     OFF     OFF     OFF   Algal Group #3
+DO           OFF     OFF     OFF     OFF   Dissolved Oxygen
+TIC          OFF     OFF     OFF     OFF   Total Inorganic Carbon
+ALK          OFF     OFF     OFF     OFF   Alkalinity
+
+EX COEF    EXH2O    EXSS    EXOM    BETA     EXC    EXIC                                       
+Wb 1       0.750   0.100   0.100   0.450     OFF     OFF
+
+ALG EX       EXA     EXA     EXA     EXA     EXA     EXA     EXA     EXA     EXA
+           0.200   0.200   0.200
+
+GENERIC    CGQ10   CG0DK   CG1DK     CGS                                        
+Cg 1       0.000   0.000   0.000   0.000   
+Cg 2       0.000  -1.000   0.000   0.000
+Cg 3       1.040   0.000   0.400   1.000
+Cg 4       0.000   0.000   0.000   0.000   
+
+S SOLIDS     SSS     SSS     SSS     SSS     SSS     SSS     SSS     SSS     SSS
+           1.000     1.0     1.0 
+
+ALGAL RATE    AG      AR      AE      AM      AS    AHSP    AHSN   AHSSI    ASAT
+Alg 1      1.500   0.020   0.020   0.050   0.040   0.003   0.014   0.003  75.000
+Alg 2      2.000   0.100   0.040   0.100   0.100   0.003   0.014   0.000  75.000
+Alg 3      0.500   0.020   0.020   0.010   0.020   0.003   0.010   0.000  75.000
+
+ALGAL TEMP   AT1     AT2     AT3     AT4     AK1     AK2     AK3     AK4        
+Alg 1        5.0    18.0    20.0    24.0    0.10    0.90    0.99    0.01
+Alg 2        8.0    25.0    35.0    40.0    0.10    0.90    0.99    0.01
+Alg 3       10.0    28.0    40.0    50.0    0.10    0.90    0.99    0.01
+
+ALG STOICH  ALGP    ALGN    ALGC   ALGSI  ALCHLA   ALPOM   ANEQN    ANPR                       
+Alg 1      0.005   0.080    0.45    0.18    65.0     0.8       2   0.001 
+Alg 2      0.005   0.080    0.45    0.00   145.0     0.8       2   0.001
+Alg 3      0.005   0.080    0.45    0.00    65.0     0.8       2   0.001
+
+EPIPHYTE    EPIC    EPIC    EPIC    EPIC    EPIC    EPIC    EPIC    EPIC    EPIC
+EPI1         OFF     OFF     OFF
+
+EPI PRIN    EPRC    EPRC    EPRC    EPRC    EPRC    EPRC    EPRC    EPRC    EPRC
+EPI1         OFF     OFF     OFF
+
+EPI INIT   EPICI   EPICI   EPICI   EPICI   EPICI   EPICI   EPICI   EPICI   EPICI
+EPI1         0.0 0.00000 0.00000
+
+EPI RATE      EG      ER      EE      EM      EB    EHSP    EHSN   EHSSI
+EPI1         2.0    0.04    0.04     0.1   0.001   0.002   0.002     0.0
+
+EPI HALF    ESAT     EHS   ENEQN    ENPR
+EPI1          75      15       2   0.001
+
+EPI TEMP     ET1     ET2     ET3     ET4     EK1     EK2     EK3     EK4
+EPI1         5.0    25.0    35.0    40.0     0.1    0.99    0.99     0.1
+
+EPI STOI      EP      EN      EC     ESI   ECHLA    EPOM
+EPI1       0.005    0.08    0.45    0.00    65.0     0.8
+
+DOM       LDOMDK  RDOMDK   LRDDK                                                
+Wb 1        0.12   0.001    0.01
+
+POM       LPOMDK  RPOMDK   LRPDK    POMS                                        
+Wb 1        0.08   0.001    0.01     0.1
+
+OM STOICH   ORGP    ORGN    ORGC   ORGSI                                        
+Wb 1       0.005   0.080   0.450    0.18
+
+OM RATE     OMT1    OMT2    OMK1    OMK2                                        
+Wb 1         4.0    25.0     0.1    0.99
+
+CBOD        KBOD    TBOD    RBOD                                                
+BOD 1      0.250  1.0147    1.85
+BOD 2      0.250  1.0147    1.85
+BOD 3      0.250  1.0147    1.85
+
+CBOD STOIC  BODP    BODN    BODC
+BOD 1    0.00400 0.06000 0.32000
+BOD 2    0.00400 0.06000 0.32000
+BOD 3    0.00400 0.06000 0.32000
+
+PHOSPHOR    PO4R   PARTP                                                        
+Wb 1       0.015     0.0
+
+AMMONIUM    NH4R   NH4DK                                                        
+Wb 1        0.08    0.12
+
+NH4 RATE   NH4T1   NH4T2   NH4K1   NH4K2                                        
+Wb 1         5.0    25.0     0.1    0.99
+
+NITRATE    NO3DK    NO3S                                                        
+Wb 1        0.05     1.0
+
+NO3 RATE   NO3T1   NO3T2   NO3K1   NO3K2                                        
+Wb 1         5.0    25.0     0.1    0.99
+
+SILICA      DSIR    PSIS   PSIDK  PARTSI                                        
+Wb 1         0.1     0.1     0.3     0.0
+
+IRON         FER     FES                                                        
+Wb 1         0.5     2.0
+
+SED CO2     CO2R                                                                
+Wb 1         0.1
+
+STOICH 1   O2NH4    O2OM
+WB 1     4.57000 1.40000
+
+STOICH 2    O2AR    O2AG
+ALG1     1.10000 1.40000
+ALG2     1.10000 1.40000
+ALG3     1.10000 1.40000
+
+STOICH 3    O2ER    O2EG
+EPI1     1.10000 1.40000
+
+O2 LIMIT   O2LIM
+         0.10000
+
+SEDIMENT    SEDC  SEDPRC   SEDCI    SEDK    FSOD    FSED                        
+Wb 1         OFF     OFF   0.001    0.10     1.0     1.0
+
+SOD RATE   SODT1   SODT2   SODK1   SODK2                                        
+Wb 1         4.0    25.0    0.10    0.99
+
+S DEMAND     SOD     SOD     SOD     SOD     SOD     SOD     SOD     SOD     SOD
+           0.500   0.500   0.500   0.500   0.500   0.500   0.500   0.500   0.500
+           0.900   0.900   0.900   0.900   0.900   0.900   0.900   0.900   0.900
+           1.200   1.200   1.200   1.200   1.200   1.200   0.500   0.500   0.500
+           1.200   1.200   1.200   1.200   1.200   1.200   1.200   1.200   1.200
+           1.200   1.200   1.200   1.200   1.200   1.200   1.200   1.200   1.200
+           1.200              
+    
+REAERATION  TYPE    EQN#   COEF1   COEF2   COEF3   COEF4                        
+Wb 1        LAKE       2 
+
+RSI FILE...............................RSIFN....................................
+        rsi.opt                                                                 
+
+QWD FILE...............................QWDFN....................................
+        mqwd.npt                                                       
+
+QGT FILE...............................QGTFN....................................
+        qgt.npt
+
+WSC FILE..................................WSCFN.................................
+        mwsc.npt
+
+SHD FILE..................................SHDFN.................................
+        mshade.npt
+
+BTH FILE...............................BTHFN....................................
+Wb 1    mbth_wb1.npt                                                                 
+
+MET FILE...............................METFN....................................
+Wb 1    mmet3.npt
+
+EXT FILE..................................EXTFN.................................
+WB 1    ext_1.npt - not used                                                                 
+
+VPR FILE...............................VPRFN....................................
+Wb 1    mvpr1.npt                                                      
+
+LPR FILE...............................LPRFN....................................
+Wb 1    lpr.npt - not used                                                                                                           
+
+QIN FILE...............................QINFN....................................
+Br 1    mqin_br1.npt                                                             
+Br 2    mqin_br2.npt   
+Br 3    mqin_br3.npt                                                                                                                                                                                   
+Br 4    mqin_br4.npt
+
+TIN FILE...............................TINFN....................................
+Br 1    mtin_br1.npt                                                       
+Br 2    mtin_br2.npt
+Br 3    mtin_br3.npt                                                                                                                                                                                    
+Br 4    mtin_br4.npt
+
+CIN FILE...............................CINFN....................................
+Br 1    mcin_br1.npt - not used
+Br 2    mcin_br2.npt - not used
+Br 3    mcin_br3.npt - not used                                                                                                                                                                                    
+Br 4    mcin_br4.npt - not used
+
+QOT FILE...............................QOTFN....................................
+Br 1    mqot_br1.npt                     
+Br 2    mqot_br2.npt - not used
+Br 3    mqot_br3.npt - not used                                                                                                    
+Br 4    mqot_br4.npt - not used
+
+QTR FILE...............................QTRFN....................................
+Tr 1    mqtr_tr1.npt                                                
+
+TTR FILE...............................TTRFN....................................
+Tr 1    mttr_tr1.npt                                                 
+
+CTR FILE...............................CTRFN....................................
+Tr 1    ctr_tr1.npt  - not used                                               
+
+QDT FILE...............................QDTFN....................................
+Br 1    mqdt_br1.npt                                                  
+Br 2    mqdt_br2.npt - not used
+Br 3    mqdt_br3.npt - not used                                                                                                 
+Br 4    mqdt_br4.npt - not used
+
+TDT FILE...............................TDTFN....................................
+Br 1    mtdt_br1.npt                                                   
+Br 2    mtdt_br2.npt - not used
+Br 3    mtdt_br3.npt - not used                                                                                                 
+Br 4    mtdt_br4.npt - not used
+
+CDT FILE...............................CDTFN....................................
+Br 1    cdt_br1.npt - not used
+Br 2    cdt_br2.npt - not used
+Br 3    cdt_br3.npt - not used
+Br 4    cdt_br4.npt - not used 
+
+PRE FILE...............................PREFN....................................
+Br 1    pre_br1.npt - not used                                                  
+Br 2    pre_br2.npt - not used
+Br 3    pre_br3.npt - not used                                                                                                    
+Br 4    pre_br4.npt - not used
+
+TPR FILE...............................TPRFN....................................
+Br 1    tpr_br1.npt - not used                                                  
+Br 2    tpr_br2.npt - not used
+Br 3    tpr_br3.npt - not used                                                                                                                                                   
+Br 4    tpr_br4.npt - not used
+
+CPR FILE...............................CPRFN....................................
+Br 1    cpr_br1.npt - not used                                                  
+Br 2    cpr_br2.npt - not used
+Br 3    cpr_br3.npt - not used                                                                                                
+Br 4    cpr_br4.npt - not used
+
+EUH FILE...............................EUHFN....................................
+Br 1    euh_br1.npt - not used                                                  
+Br 2    euh_br2.npt - not used
+Br 3    euh_br3.npt - not used                                                                                                   
+Br 4    euh_br4.npt - not used
+
+TUH FILE...............................TUHFN....................................
+Br 1    tuh_br1.npt - not used                                                  
+Br 2    tuh_br2.npt - not used
+Br 3    tuh_br3.npt - not used                                                                                                   
+Br 4    tuh_br4.npt - not used
+
+CUH FILE...............................CUHFN....................................
+Br 1    cuh_br1.npt - not used                                                  
+Br 2    cuh_br2.npt - not used
+Br 3    cuh_br3.npt - not used                                                                                                    
+Br 4    cuh_br4.npt - not used
+
+EDH FILE...............................EDHFN....................................
+Br 1    edh_br1.npt - not used                                                  
+Br 2    edh_br2.npt - not used 
+Br 3    edh_br3.npt - not used                                                                                                
+Br 4    edh_br4.npt - not used
+
+TDH FILE...............................TDHFN....................................
+Br 1    tdh_br1.npt - not used                                                  
+Br 2    tdh_br2.npt - not used
+Br 3    tdh_br3.npt - not used                                                                                                   
+Br 4    tdh_br4.npt - not used
+
+CDH FILE...............................CDHFN....................................
+Br 1    cdh_br1.npt - not used                                                  
+Br 2    cdh_br2.npt - not used
+Br 3    cdh_br3.npt - not used                                                                                                                                                 
+Br 4    cdh_br4.npt - not used
+
+SNP FILE...............................SNPFN....................................
+Wb 1    msnp_1.opt                                                                                                                               
+
+PRF FILE...............................PRFFN....................................
+Wb 1    prf_1.opt                                                                                                             
+
+VPL FILE...............................VPLFN....................................
+Wb 1    vpl_1.opt                                                                                                             
+
+CPL FILE...............................CPLFN....................................
+Wb 1    cpl_1.opt                                                                                                             
+
+SPR FILE...............................SPRFN....................................
+Wb 1    spr_1.opt                                                                                                                                 
+
+FLX FILE...............................KFLFN....................................
+Wb 1    flx_1.opt - not used
+
+TSR FILE...............................TSRFN....................................
+        tsr_wmb.opt                                                                 
+
+WDO FILE...............................WDOFN....................................
+        wdo.opt

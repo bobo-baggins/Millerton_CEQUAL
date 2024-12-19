@@ -1,0 +1,72 @@
+Constituent, hydrodynamic, and derived constituent names, formats, and multipliers and array viewer controls
+
+....................CNAME..................     CMULT    CMIN    CMAX   CPLTC     #
+TDS, g/m^3                                        1.0    -1.0   300.0     OFF     1      
+Tracer, days                                      1.0    -1.0    -1.0     OFF     2
+Water age, days                                   1.0   -20.0    -1.0     OFF     3
+Coliform, g/m^3                                   1.0    -1.0     5.0     OFF     4
+Generic constituent, g/m^3                        1.0    -1.0    -5.0     OFF     5
+Suspended solids1, g/m^3                          1.0    -1.0    15.0     OFF     6
+Suspended solids2, g/m^3                          1.0    -1.0    15.0     OFF     7
+Suspended solids3, g/m^3                          1.0    -1.0    15.0     OFF     8
+Phosphate, mg/m^3                              1000.0  -0.005    0.05     OFF     9
+Ammonium, mg/m^3                               1000.0    -0.1     0.3     OFF    10
+Nitrate nitrite, mg/m^3                        1000.0    -0.1     0.3     OFF    11
+Dissolved silica, g/m^3                           1.0    -1.0    10.0     OFF    12
+Particulate silica, g/m^3                         1.0    -0.2    15.0     OFF    13
+Total Iron, g/m^3                                 1.0    -0.1     2.0     OFF    14
+Labile DOM, g/m^3                                 1.0    -0.1     3.0     OFF    15
+Refractory_DOM, g/m^3                             1.0    -0.1     4.0     OFF    16
+Labile POM, g/m^3                                 1.0    -0.1     3.0     OFF    17
+Refractory POM, g/m^3                             1.0    -0.1     4.0     OFF    18
+CBOD1, g/m^3                                      1.0   -0.01     2.0     OFF    19
+CBOD2, g/m^3                                      1.0   -0.01     2.0     OFF    20
+CBOD3, g/m^3                                      1.0   -0.01     2.0     OFF    21
+Diatoms, g/m^3                                    1.0   -0.01     3.0     OFF    22
+Greens, g/m^3                                     1.0   -0.01     3.0     OFF    23
+Cyanobacteria, g/m^3                              1.0   -0.01     3.0     OFF    24
+Dissolved oxygen, g/m^3                           1.0    -1.0    15.0     OFF    25 
+Inorganic carbon, g/m^3                           1.0    -1.0    10.0     OFF    26
+Alkalinity, g/m^3                                 1.0    -1.0   200.0     OFF    27
+
+....................HNAME..................      HFMT    HMIN    HMAX   HPLTC     #
+Timestep violations [NVIOL]                   (F10.0)    -1.0   1.0E5     OFF     1   
+Horizontal velocity [U], m/s                (1PE10.1)    -0.1     0.3     OFF     2
+Vertical velocity [W], m/ s                 (1PE10.1) -1.0E-7  1.0E-2     OFF     3
+Temperature [T1], deg C                       (F10.2)     0.0    15.0     OFF     4
+Density [RHO], g/m^3                          (F10.2)   997.0  1005.0     OFF     5
+Vertical eddy viscosity [AZ], m^2/s         (1PE10.1) -1.0E-8  1.0E-1     OFF     6
+Velocity shear stress [SHEAR], 1/s^2        (1PE10.1) -1.0E-8  1.0E-2     OFF     7
+Internal shear [ST], m^3/s                  (1PE10.1) -1.0E-8  1.0E-2     OFF     8
+Bottom shear [SB], m^3/s                    (1PE10.1) -1.0E-8  1.0E-2     OFF     9
+Longitudinal momentum [ADMX], m^3/s         (1PE10.1) -1.0E-8  1.0E-2     OFF    10
+Longitudinal momentum [DM], m^3/s           (1PE10.1) -1.0E-8  1.0E-2     OFF    11
+Horizontal density gradient [HDG], m^3/s    (1PE10.1) -1.0E-8  1.0E-2     OFF    12
+Vertical momentum [ADMZ], m^3/s             (1PE10.1) -1.0E-8  1.0E-2     OFF    13
+Horizontal pressure gradient [HPG], m^3/s   (1PE10.1) -1.0E-8  1.0E-2     OFF    14
+Gravity term channel slope [GRAV], m^3/s    (1PE10.1) -1.0E-8   1.0E1     OFF    15
+
+...................CDNAME..................    CDMULT   CDMIN   CDMAX  CDPLTC     #
+Dissolved organic carbon, g/m^3                   1.0    -1.0     3.0     OFF     1   
+Particulate organic carbon, g/m^3                 1.0    -1.0    25.0     OFF     2
+Total organic carbon, g/m^3                       1.0    -1.0    50.0     OFF     3
+Dissolved organic nitrogen, g/m^3                 1.0    -1.0    25.0     OFF     4
+Particulate organic nitrogen, g/m^3               1.0    -1.0    25.0     OFF     5
+Total organic nitrogen, g/m^3                     1.0    -1.0    25.0     OFF     6
+Total kjedahl nitrogen, g/m^3                     1.0    -1.0    25.0     OFF     7
+Total nitrogen, g/m^3                             1.0    -1.0    50.0     OFF     8
+Dissolved organic phosphorus, mg/m^3           1000.0    -1.0    15.0     OFF     9
+Particulate organic phosphorus, mg/m^3         1000.0    -1.0    15.0     OFF    10
+Total organic phosphorus, mg/m^3               1000.0    -1.0    25.0     OFF    11
+Total phosphorus, mg/m^3                       1000.0    -1.0    -1.0     OFF    12
+Algal production, g/m^2/day                       1.0    -1.0     5.0     OFF    13
+Chlorophyll a, mg/m^3                          1000.0    -1.0    10.0     OFF    14
+Total algae, g/m^3                                1.0    -1.0     1.0     OFF    15
+Oxygen gas saturation, %                          1.0    -5.0   145.0     OFF    16
+Total suspended solids, g/m^3                     1.0    -1.0    60.0     OFF    17
+Total inorganic suspended solids,g/m^3            1.0    -1.0    50.0     OFF    18
+Carbonaceous ultimate BOD, g/m^3                  1.0    -1.0    20.0     OFF    19
+pH                                                1.0     5.0     9.0     OFF    20                      
+Carbon dioxide, g/m^3                             1.0    -1.0    10.0     OFF    21                      
+Bicarbonate, g/m^3                                1.0    -1.0    10.0     OFF    22                      
+Carbonate, g/m^3                                  1.0    -1.0    10.0     OFF    23

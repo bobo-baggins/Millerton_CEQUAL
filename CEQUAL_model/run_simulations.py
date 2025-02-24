@@ -21,10 +21,10 @@ import time
 ############################################################################################
 
 #include file to update in excel: 
-start_date = '6/2/2023 1:00' #start date of simulation (always start at 1:00)
-end_date ='12/28/2023 23:00' #end date of simulation (always at at 23:00)
-analog_years =  [2023]# available:  [1988,1989,1990,1994,2002,2007,2008,2013,2020,2021,2022,2023]
-wait_time = 120 #seconds between simulations. Program will break if simulations take longer than wait time
+start_date = '05/28/2024 1:00' #start date of simulation (always start at 1:00)
+end_date ='12/15/2024 23:00' #end date of simulation (always at at 23:00)
+analog_years =  [2024]# available:  [1988,1989,1990,1994,2002,2007,2008,2013,2020,2021,2022,2023]
+wait_time = 360 #seconds between simulations. Program will break if simulations take longer than wait time
 #Code will excute after X amount of seconds, error if Model hasn't finished running by the end.
 #Minimum wait time is 90 seconds.
 make_output_folders = False #makes output folders, only if none exist
@@ -45,6 +45,7 @@ for analog_year in analog_years:
     JDAY_init = (pd.Timestamp(start_date)-pd.Timestamp('1-1-1921')).days + 1 #calulate initial Julinan Day for added data
     print(JDAY_init)
     JDAYS = np.arange(JDAY_init, JDAY_init + len(df_flow.index)) #create Julian Day array
+    print(JDAYS[-1])
     df_flow['JDAY'] = JDAYS #add Julian day array to flow dataframe
 
     
@@ -54,12 +55,20 @@ for analog_year in analog_years:
     MC_OUT = df_flow.MC_OUT.values*0.028316847  # cfs to m3/s
     SJR_OUT = df_flow.SJR_OUT.values*0.028316847  # cfs to m3/s
     M_IN = df_flow.M_IN.values*0.028316847  # cfs to m3/s
-    MIL_EVAP = df_flow.MIL_EVAP.values*-0.028316847  # cfs to m3/s
+    MIL_EVAP = df_flow.MIL_EVAP.values*0.028316847  # cfs to m3/s
     JDAY = df_flow.JDAY.values *1.000
     Temp_predicted = df_temp['%s_Temp'%analog_year].values *1.000
     zero_filler = np.zeros(len(df_flow.index))*1.000 #fill-in for qin br2-4
     
-    for i in range(0,len(JDAY)): #rounding to hundredths place
+    # Before the loop, let's check array lengths
+    print(f"Length of JDAY array: {len(JDAY)}")
+    print(f"Length of Temp_predicted array: {len(Temp_predicted)}")
+
+    # Use the shorter length for the loop
+    loop_length = min(len(JDAY), len(Temp_predicted))
+    print(f"Using loop length of: {loop_length}")
+
+    for i in range(loop_length):  # This ensures we don't go beyond the shorter array
         JDAY[i] = '%0.2f'%JDAY[i]
         SPL_OUT[i] = '%0.2f'%SPL_OUT[i]
         FKC_OUT[i] = '%0.2f'%FKC_OUT[i]
@@ -70,15 +79,15 @@ for analog_year in analog_years:
         Temp_predicted[i] = '%0.2f'%Temp_predicted[i]
         zero_filler[i] = '%0.2f'%zero_filler[i]
     # changed 0.99 to 1.99 as this was causing an error during model run with input files being written missing the last day.
-    JDAY_end = JDAY[-1]+1.99
-    print(JDAY_end)
+    #JDAY_end = JDAY[-1]+1.99
+    #print(JDAY_end)
     ## create qot_br1.npt file
     with open('initial_files/mqot_br1_init.npt',"r") as f:
         lines = f.readlines()
     for i in range(0, len(JDAY)):
         l = f"\n{JDAY[i] : >8}{SPL_OUT[i] : >8}{FKC_OUT[i] : >8}{MC_OUT[i] : >8}{SJR_OUT[i] : >8}" #make line for CEQUAL timestep
         lines.append(l)
-    lines.append(f"\n{JDAY_end : >8}{0.0 : >8}{0.0 : >8}{0.0 : >8}{0.0 : >8}\n")
+    #lines.append(f"\n{JDAY_end : >8}{0.0 : >8}{0.0 : >8}{0.0 : >8}{0.0 : >8}\n")
     
     with open('mqot_br1.npt',"w") as update:
         update.writelines(lines)
@@ -92,7 +101,7 @@ for analog_year in analog_years:
     for i in range(0, len(JDAY)):
         l = f"\n{JDAY[i] : >8}{MIL_EVAP[i] : >8}"
         lines.append(l)
-    lines.append(f"\n{JDAY_end : >8}{0.0 : >8}\n")
+    #lines.append(f"\n{JDAY_end : >8}{0.0 : >8}\n")
     
     with open('mqdt_br1.npt',"w") as update:
         update.writelines(lines)
@@ -106,7 +115,7 @@ for analog_year in analog_years:
     for i in range(0, len(JDAY)):
         l = f"\n{JDAY[i] : >8}{M_IN[i] : >8}"
         lines.append(l)
-    lines.append(f"\n{JDAY_end : >8}{0.0 : >8}\n")
+   # lines.append(f"\n{JDAY_end : >8}{0.0 : >8}\n")
     
     with open('mqin_br1.npt',"w") as update:
         update.writelines(lines)
@@ -119,7 +128,7 @@ for analog_year in analog_years:
     for i in range(0, len(JDAY)):
         l = f"\n{JDAY[i] : >8}{zero_filler[i] : >8}"
         lines.append(l)
-    lines.append(f"\n{JDAY_end : >8}{0.0 : >8}\n")
+    #lines.append(f"\n{JDAY_end : >8}{0.0 : >8}\n")
     with open('mqin_br2.npt',"w") as update:
         update.writelines(lines)
     update.close()
@@ -129,7 +138,7 @@ for analog_year in analog_years:
     for i in range(0, len(JDAY)):
         l = f"\n{JDAY[i] : >8}{zero_filler[i] : >8}"
         lines.append(l)
-    lines.append(f"\n{JDAY_end : >8}{0.0 : >8}\n")
+    #lines.append(f"\n{JDAY_end : >8}{0.0 : >8}\n")
     with open('mqin_br3.npt',"w") as update:
         update.writelines(lines)
     update.close()
@@ -139,7 +148,7 @@ for analog_year in analog_years:
     for i in range(0, len(JDAY)):
         l = f"\n{JDAY[i] : >8}{zero_filler[i] : >8}"
         lines.append(l)
-    lines.append(f"\n{JDAY_end : >8}{0.0 : >8}\n")
+    #lines.append(f"\n{JDAY_end : >8}{0.0 : >8}\n")
     with open('mqin_br4.npt',"w") as update:
         update.writelines(lines)
     update.close()
@@ -150,7 +159,7 @@ for analog_year in analog_years:
     for i in range(0, len(JDAY)):
         l = f"\n{JDAY[i] : >8}{Temp_predicted[i] : >8}"
         lines.append(l)
-    lines.append(f"\n{JDAY_end : >8}{0.0 : >8}\n")
+    #lines.append(f"\n{JDAY_end : >8}{0.0 : >8}\n")
     with open('mtin_br1.npt',"w") as update:
         update.writelines(lines)
     update.close()
@@ -160,7 +169,7 @@ for analog_year in analog_years:
     for i in range(0, len(JDAY)):
         l = f"\n{JDAY[i] : >8}{Temp_predicted[i] : >8}"
         lines.append(l)
-    lines.append(f"\n{JDAY_end : >8}{0.0 : >8}\n")
+    #lines.append(f"\n{JDAY_end : >8}{0.0 : >8}\n")
     with open('mtin_br2.npt',"w") as update:
         update.writelines(lines)
     update.close()
@@ -170,7 +179,7 @@ for analog_year in analog_years:
     for i in range(0, len(JDAY)):
         l = f"\n{JDAY[i] : >8}{Temp_predicted[i] : >8}"
         lines.append(l)
-    lines.append(f"\n{JDAY_end : >8}{0.0 : >8}\n")
+    #lines.append(f"\n{JDAY_end : >8}{0.0 : >8}\n")
     with open('mtin_br3.npt',"w") as update:
         update.writelines(lines)
     update.close()
@@ -180,7 +189,7 @@ for analog_year in analog_years:
     for i in range(0, len(JDAY)):
         l = f"\n{JDAY[i] : >8}{Temp_predicted[i] : >8}"
         lines.append(l)
-    lines.append(f"\n{JDAY_end : >8}{0.0 : >8}\n")
+    #lines.append(f"\n{JDAY_end : >8}{0.0 : >8}\n")
     with open('mtin_br4.npt',"w") as update:
         update.writelines(lines)
     update.close()
@@ -229,11 +238,11 @@ for analog_year in analog_years:
        
     os.system("start w2_cvf_millerton_2_1_07.exe")
     time.sleep(wait_time)
-    source_dir = r'../NewExNoAction2022'
+    source_dir = r'../CEQUAL_model'
     dest_dir =  r'../CEQUAL_outputs/%s'%analog_year  
+
     if make_output_folders == True:         
         os.mkdir(dest_dir)
-
     opt_files = glob.iglob(os.path.join("*.opt"))
     for file in opt_files:
         if os.path.isfile(file):
@@ -246,21 +255,32 @@ for analog_year in analog_years:
             shutil.copy2(file, dest_dir)      
         # os.mkdir(dest_dir)
 
-    with open('../CEQUAL_outputs/%s/str_br1.opt'%analog_year,"r") as f:
+    with open(f'../CEQUAL_outputs/{analog_year}/str_br1.opt',"r") as f:
         lines = f.readlines()
     lines.pop(0)
     lines.pop(0)
+    
+    # Convert lines to numpy arrays and print lengths for debugging
+    print(f"Number of lines from opt file: {len(lines)}")
+    
     for i,l in enumerate(lines):
         lines[i] = np.array(list(filter(None, np.array(l.split(' ')))), dtype = np.float32)
-    ix = pd.date_range(start = start_date, end =end_date ,freq = 'h')
-
-    #print("ix value:")
-    #print(len(ix))
-    #print(ix[0])
-    # lengths between lines and ix are off by an hour.... or a value of 1.
-    # Lines is missing an hour, so ix is clipped to match.
-    ix=ix[1:]
-
+    
+    # Create date range and print lengths
+    ix = pd.date_range(start = start_date, end = end_date, freq = 'h')
+    print(f"Length of date range: {len(ix)}")
+    print(f"First date: {ix[0]}")
+    print(f"Last date: {ix[-1]}")
+    
+    # Clip the longer array to match the shorter one
+    if len(ix) > len(lines):
+        ix = ix[:len(lines)]
+    elif len(lines) > len(ix):
+        lines = lines[:len(ix)]
+        
+    print(f"Final lengths - ix: {len(ix)}, lines: {len(lines)}")
+    
+    # Create DataFrame with matched lengths
     df = pd.DataFrame(index = ix, columns = ['JDAY', 'SPL_temp_C', 'FKC_temp_C', 'MC_temp_C', 'SJR_temp_C',
                                   'SPL_Q_m3s', 'FKC_Q_m3s', 'MC_Q_m3s', 'SJR_Q_m3s',
                                   'SPL_ELEVCL_m', 'FKC_ELEVCL_m', 'MC_ELEVCL_m', 'SJR_ELEVCL_m'])
@@ -272,3 +292,15 @@ for analog_year in analog_years:
     # can't locate parent directory for whatever reason... my virtual environment?
     #This is a quick fix..  .   .
    # df.to_csv('%s_analog-release_outputs.csv'%(analog_year))
+
+    # After creating and processing the DataFrame...
+    
+    # Create output directory if it doesn't exist
+    dest_dir = f'CEQUAL_outputs/{analog_year}'
+    os.makedirs(dest_dir, exist_ok=True)
+    
+    # Save only the temperature output DataFrame
+    df.to_csv(f'CEQUAL_outputs/{analog_year}/{analog_year}_temp_analog-release_outputs.csv')
+    
+    # Remove the old output_csvs save
+    # df.to_csv('output_csvs/outflow_temps/%s_temp_analog-release_outputs.csv'%(analog_year))

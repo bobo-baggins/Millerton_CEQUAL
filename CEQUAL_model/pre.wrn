@@ -6,19 +6,5 @@ Cell width [B(169,40)=10.840] < or > 10X width [B(169,41)=121.690]
 Cell width [B(170,40)=10.450] < or > 10X width [B(170,41)=112.030]
 Cell width [B(144,44)=10.000] < or > 10X width [B(144,45)=136.580]
 Cell width [B(145,44)=10.000] < or > 10X width [B(145,45)=116.620]
-Wind speed [WIND= 20.600] > 20 m/s on day 9287.760 in mmet3.npt                                                               
-Wind speed [WIND= 20.600] > 20 m/s on day 20975.760 in mmet3.npt                                                               
-Air temperature [TAIR=50.560] > 50 deg on day 31597.670 in mmet3.npt                                                               
-Wind speed [WIND= 24.140] > 20 m/s on day 33207.422 in mmet3.npt                                                               
-Wind speed [WIND= 23.250] > 20 m/s on day 33207.461 in mmet3.npt                                                               
-Wind speed [WIND= 20.120] > 20 m/s on day 33207.500 in mmet3.npt                                                               
-MET Warning: Interpolation of met data over longer than a few hours is not recommended. Difference between Jday values is   513.070 at JDAY:37408.039 in mmet3.npt                                                               
 Structure 2 selective withdrawal bottom layer [KBSTR=166] < bottom active layer [KB=209] in branch 1
 Structure 3 selective withdrawal bottom layer [KBSTR=170] < bottom active layer [KB=209] in branch 1
-Water surface elevation is below bottom elevation at segment 1
-Water surface elevation is below bottom elevation at segment 2
-Water surface elevation is below bottom elevation at segment 3
-Water surface elevation is below bottom elevation at segment 4
-Water surface elevation is below bottom elevation at segment 5
-Water surface elevation is below bottom elevation at segment 33
-Water surface elevation is below bottom elevation at segment 34

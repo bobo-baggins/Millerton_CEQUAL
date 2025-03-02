@@ -22,12 +22,12 @@ import time
 
 #include file to update in excel: 
 start_date = '05/28/2024 1:00' #start date of simulation (always start at 1:00)
-end_date ='12/18/2024 23:00' #end date of simulation (always at at 23:00)
+end_date ='12/14/2024 23:00' #end date of simulation (always at at 23:00)
 analog_years =  [2024]# available:  [1988,1989,1990,1994,2002,2007,2008,2013,2020,2021,2022,2023]
-wait_time = 90 #seconds between simulations. Program will break if simulations take longer than wait time
+wait_time = 150 #seconds between simulations. Program will break if simulations take longer than wait time
 #Code will excute after X amount of seconds, error if Model hasn't finished running by the end.
 #Minimum wait time is 90 seconds.
-make_output_folders = False #makes output folders, only if none exist
+make_output_folders = True #makes output folders, only if none exist
 ############################################################################################
 ############################################################################################
 start_date = pd.to_datetime(start_date)
@@ -208,15 +208,22 @@ for analog_year in analog_years:
     update.close()
     
     ###############################convert met data##########################
-    df_met = pd.read_csv('met_data/%s_CEQUAL_met_inputs.csv'%analog_year,index_col = 0, parse_dates= True)
-    df_met = df_met[(df_met.index >= start_date) & (df_met.index <= end_date)]
-    #This creates the JDAY column for the met data. Commenting out for testing due to long run time
     hour_cycle = [0,0.04,0.08,0.13,0.17,0.21,0.25,0.29,0.34,0.38,0.42,0.46,0.50,0.55,0.59,0.63,0.67,0.71,0.76,0.80,0.84,0.88,0.92,0.97]
-    JDAYS_hourly = [] #empty array for now Jdates added to original
-    for d in range(JDAY_init, JDAY_init + len(df_flow.index)+2):
+
+    # Filter df_met first
+    df_met = pd.read_csv(f'met_data/{analog_year}_CEQUAL_met_inputs.csv', index_col=0, parse_dates=True)
+    df_met = df_met[(df_met.index >= start_date) & (df_met.index <= end_date)]
+
+    # Create JDAYS_hourly to match df_met length exactly
+    JDAYS_hourly = []
+    for d in range(JDAY_init, JDAY_init + len(df_flow.index)):
         for h in hour_cycle:
             JDAYS_hourly.append(d+h)
-    JDAYS_hourly.pop(0)
+
+    # Trim JDAYS_hourly to match df_met length
+    JDAYS_hourly = JDAYS_hourly[:len(df_met)]
+
+    # Now assign to df_met
     df_met['JDAY'] = JDAYS_hourly
     
     JDAY = df_met.JDAY.values*1.000  # cfs to m3/s
@@ -307,10 +314,8 @@ for analog_year in analog_years:
         raise
 
     source_dir = r'../CEQUAL_model'
-    dest_dir =  r'../CEQUAL_outputs/%s'%analog_year  
-
-    if make_output_folders == True:         
-        os.mkdir(dest_dir)
+    dest_dir = f'../CEQUAL_outputs/{analog_year}'
+    os.makedirs(dest_dir, exist_ok=True)  # Won't raise error if directory exists
 
     # opt_files = glob.iglob(os.path.join("*.opt"))
     # for file in opt_files:

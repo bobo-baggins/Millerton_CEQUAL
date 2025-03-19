@@ -248,13 +248,13 @@ for analog_year in analog_years:
         update.writelines(lines)
     update.close()
     
-    # Clean up any existing output files before running, except w2_con.csv
-    for csv_file in glob.glob("*.csv"):
-        if csv_file != "w2_con.csv":  # Skip w2_con.csv
-            try:
-                os.remove(csv_file)
-            except Exception as e:
-                print(f"Warning: Could not remove existing file {csv_file}: {e}")
+    # # Clean up any existing output files before running, except w2_con.csv
+    # for csv_file in glob.glob("*.csv"):
+    #     if csv_file != "w2_con.csv":  # Skip w2_con.csv
+    #         try:
+    #             os.remove(csv_file)
+    #         except Exception as e:
+    #             print(f"Warning: Could not remove existing file {csv_file}: {e}")
 
     # Run the executable and wait for completion
     try:

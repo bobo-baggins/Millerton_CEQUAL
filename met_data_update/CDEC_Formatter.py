@@ -1,8 +1,12 @@
 import pandas as pd
 from pathlib import Path
 import logging
+import warnings
 from typing import Dict, Tuple, List
 from datetime import datetime, timedelta
+
+# Suppress openpyxl warning about default styles
+warnings.filterwarnings('ignore', category=UserWarning, module='openpyxl.styles.stylesheet')
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -101,8 +105,17 @@ class CDECFormatter:
             # Create complete datetime index
             complete_index = pd.date_range(start=min_date, end=max_date, freq='H')
 
+            # Add debug prints
+            logging.info(f"Date range: {min_date} to {max_date}")
+            
             # Standardize and save each dataframe
             for filename, df in self.dataframes.items():
+                # Check for duplicates before reindexing
+                if df.index.duplicated().any():
+                    logging.warning(f"Found duplicate timestamps in {filename}")
+                    # Keep first occurrence of duplicates
+                    df = df[~df.index.duplicated(keep='first')]
+                
                 # Reindex to include all hours
                 df = df.reindex(complete_index)
                 
